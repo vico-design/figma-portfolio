@@ -14,16 +14,26 @@
   }
 
   iframe {
-    width: 100%;
-    height: 100%;
     border: none;
     display: block;
+    width: 100vw;
+    height: 100vh;
+    transform-origin: top left;
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+         only screen and (min-resolution: 192dpi) {
+    iframe {
+      transform: scale(0.90); 
+      width: calc(100vw / 0.90);
+      height: calc(100vh / 0.90);
+    }
   }
 </style>
 </head>
 <body>
   <iframe
-    src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/rZwMGSIF3m842qhtbp0OvK/Portfolio-2023-2024?node-id=1-2&starting-point-node-id=1%3A2&locale=en&scaling=contain&content-scaling=fixed"
+    src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/rZwMGSIF3m842qhtbp0OvK/Portfolio-2023-2024?node-id=1-2&starting-point-node-id=1%3A2&locale=en&scaling=min-zoom&content-scaling=responsive"
     allowfullscreen
     scrolling="no"
   ></iframe>

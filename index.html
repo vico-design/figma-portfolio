@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Vico</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
+      overflow: hidden; 
     }
     iframe {
+      position: fixed;  
+      top: 0;
+      left: 0;
+      width: 100%;     
+      height: 100%;     
       border: none;
       display: block;
     }
@@ -19,30 +24,9 @@
 </head>
 <body>
   <iframe
-    id="portfolio"
     src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/rZwMGSIF3m842qhtbp0OvK/Portfolio-2023-2024?node-id=1-2&starting-point-node-id=1%3A2&locale=en&scaling=min-zoom&content-scaling=responsive"
     allowfullscreen
-    scrolling="yes">
-  </iframe>
-
-  <script>
-    function ajusterIframe() {
-      const iframe = document.getElementById('portfolio');
-      const largeur = window.innerWidth;
-      const hauteur = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-      iframe.style.width = largeur + 'px';
-      iframe.style.height = hauteur + 'px';
-    }
-
-    // Ajustement au chargement et sur redimensionnement
-    window.addEventListener('load', ajusterIframe);
-    window.addEventListener('resize', ajusterIframe);
-
-    // Ajustement sur iOS quand la barre d'adresse se masque/affiche
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', ajusterIframe);
-    }
-  </script>
+    scrolling="yes"
+  ></iframe>
 </body>
 </html>
-

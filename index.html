@@ -16,26 +16,36 @@
   iframe {
     border: none;
     display: block;
-    width: 100vw;
-    height: 100vh;
     transform-origin: top left;
-  }
-
-  @media only screen and (-webkit-min-device-pixel-ratio: 2),
-         only screen and (min-resolution: 192dpi) {
-    iframe {
-      transform: scale(0.775); 
-      width: calc(100vw / 0.775);
-      height: calc(100vh / 0.775);
-    }
   }
 </style>
 </head>
 <body>
   <iframe
+    id="figmaFrame"
     src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/rZwMGSIF3m842qhtbp0OvK/Portfolio-2023-2024?node-id=1-2&starting-point-node-id=1%3A2&locale=en&scaling=min-zoom&content-scaling=responsive"
     allowfullscreen
     scrolling="no"
   ></iframe>
+
+  <script>
+    function adjustIframeSize() {
+      const iframe = document.getElementById('figmaFrame');
+      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+      iframe.style.width = window.innerWidth + 'px';
+      iframe.style.height = window.innerHeight + 'px';
+
+      if (isMac && !isMobile && window.devicePixelRatio >= 2) {
+        const scaleFactor = window.devicePixelRatio / 2; 
+        iframe.style.width = (window.innerWidth * scaleFactor) + 'px';
+        iframe.style.height = (window.innerHeight * scaleFactor) + 'px';
+      }
+    }
+
+    adjustIframeSize();
+    window.addEventListener('resize', adjustIframeSize);
+  </script>
 </body>
 </html>
